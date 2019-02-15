@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Icon } from "antd";
 
 class VideoDetail extends Component {
     state = {
@@ -16,8 +17,8 @@ class VideoDetail extends Component {
 
         if( !video ) {
             return (
-                <div style={{ "width": "67.5%", "background": "#000", "color": "#fff", "height": "80vh" }}>
-                    No Video Selected : Select a video to play
+                <div style={{ "width": "67.5%", "background": "#999999", "color": "#fff", "height": "85vh", "postion": "relative" }}>
+                    <h1 style={{ "top":"50%", "left": "28%", "position": "absolute" }}><Icon type={"youtube"}/></h1>
                 </div>
             )
         }
@@ -28,7 +29,7 @@ class VideoDetail extends Component {
         return (
             <div>
                 <div className={"embed-responsive embed-responsive-16by9"}>
-                    <iframe className={"embed-responsive-item"} src={url} allowFullScreen />
+                    <iframe title={ video.snippet.title } className={"embed-responsive-item"} src={url} allowFullScreen />
                 </div>
                 <div>
                     <h2>

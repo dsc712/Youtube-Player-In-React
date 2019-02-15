@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import VideoListItem from './VideoListItem';
+import { List } from 'antd';
 
 class VideoList extends Component {
+    state = {
+        data: []
+    };
+
     render() {
         if( this.props.videos.length === 0 ) {
           return (
-              <div style={{ "width": "40%", "background": "#ddd", "color": "#000" }}>
-                  <h4>No Search Results</h4>
-              </div>
+              <List
+                  style={{ "width": "40%"}}
+                  size={"large"}
+                  header={<div>Video Suggestions</div>}
+                  bordered
+                  dataSource={ this.state.data }
+                  renderItem={item => (<List.Item>{item}</List.Item>)}
+              />
           )
         }
 
